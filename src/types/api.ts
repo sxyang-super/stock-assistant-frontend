@@ -3,6 +3,7 @@
 export interface Stock {
   type: string
   code: string
+  name?: string // 股票名称
 }
 
 export interface AnalyseStatusItem {

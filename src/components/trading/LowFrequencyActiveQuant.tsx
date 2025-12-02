@@ -23,7 +23,25 @@ export function LowFrequencyActiveQuant() {
     setLoading(true)
     try {
       const response = await analyseStatusApi.getListByPage(page, pageSize)
-      setData(response.records)
+      // 为每个股票项添加名称
+      const dataWithNames = await Promise.all(
+        response.records.map(async (item) => {
+          try {
+            const stockInfo = await analyseStatusApi.getStockInfo(item.stock.type, item.stock.code)
+            return {
+              ...item,
+              stock: {
+                ...item.stock,
+                name: stockInfo.name
+              }
+            }
+          } catch (error) {
+            console.warn(`Failed to fetch stock name for ${item.stock.type}:${item.stock.code}`, error)
+            return item
+          }
+        })
+      )
+      setData(dataWithNames)
       setTotalPages(response.pages)
       setCurrentPage(response.current)
     } catch (error) {

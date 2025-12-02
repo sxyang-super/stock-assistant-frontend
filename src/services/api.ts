@@ -43,6 +43,18 @@ export const analyseStatusApi = {
   getDetail: (type: string, code: string): Promise<AnalyseStatusDetail> => {
     return api.get(`/lfaqt-analyse-status/${type}/${code}`)
   },
+
+  // Get stock info with name
+  getStockInfo: async (type: string, code: string): Promise<{ name: string }> => {
+    try {
+      // 尝试获取股票名称的API端点
+      return await api.get(`/stock-info/${type}/${code}`)
+    } catch (error) {
+      console.warn('Failed to fetch stock name:', error)
+      // 如果获取失败，返回空名称
+      return { name: '' }
+    }
+  },
 }
 
 export default api
