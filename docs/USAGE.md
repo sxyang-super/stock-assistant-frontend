@@ -2,7 +2,7 @@
 
 ## 📋 Project Overview
 
-This is a React + TypeScript based analysis status management system for displaying and managing data analysis task status.
+This is a React + TypeScript based trading mode management system for displaying and managing different trading strategies and analysis status.
 
 ## 🛠️ Quick Start
 
@@ -83,17 +83,17 @@ GET http://localhost:8080/lfaqt-analyse-status/HS_ETF/511580
 
 ## 🎯 Features
 
-### 1. Data Table
+### 1. Trading Mode System
+- ✅ Multiple trading strategies support
+- ✅ Mode selection sidebar
+- ✅ Dynamic content rendering based on selected mode
+- ✅ Mode-specific configurations
+
+### 2. Data Table
 - ✅ Paginated data display
 - ✅ Status label color differentiation
 - ✅ Responsive design
 - ✅ Loading state indicator
-
-### 2. Pagination
-- ✅ Page number navigation
-- ✅ Previous/Next page
-- ✅ Jump to first/last page
-- ✅ Display total record count
 
 ### 3. Detail Panel
 - ✅ Right slide-in animation
@@ -104,58 +104,51 @@ GET http://localhost:8080/lfaqt-analyse-status/HS_ETF/511580
 ## 🎨 Interface Preview
 
 ### Main Interface
-- Top navigation bar showing system name
-- Data table displaying analysis status list
-- Bottom pagination controls
+- Top navigation bar with language switcher
+- Left sidebar for trading mode selection
+- Main content area displaying selected mode's interface
+- Responsive layout for different screen sizes
 
-### Detail Panel
-- Click "View Details" button
-- Right slide-out detail panel
-- Display basic information, price change information, and raw data
+### Trading Mode: Low-Frequency Active Quant
+- Data table showing analysis status list
+- Pagination controls at the bottom
+- Detail panel for individual stock information
 
 ## 🔧 Development Notes
 
-### Project Structure
+### Trading Mode Configuration
+
+Trading modes are configured in `src/config/tradingModes.ts`:
+
+```typescript
+export const tradingModes: TradingMode[] = [
+  {
+    id: 'low-frequency-active-quant',
+    name: '低频主动量化交易',
+    nameKey: 'tradingModes.lowFrequencyActiveQuant.name',
+    description: '基于低频分析的主动量化交易策略',
+    descriptionKey: 'tradingModes.lowFrequencyActiveQuant.description',
+    icon: 'TrendingUp',
+    path: '/trading/low-frequency-active-quant',
+    enabled: true
+  }
+]
 ```
-src/
-├── components/          # Reusable components
-│   ├── DataTable.tsx   # Data table component
-│   └── DetailPanel.tsx # Detail panel component
-├── services/           # API services
-│   └── api.ts         # Interface definitions
-├── types/             # Type definitions
-│   └── api.ts        # API types
-├── App.tsx            # Main application component
-└── main.tsx           # Application entry point
-```
-
-### State Management
-- Use React Hooks for state management
-- Include loading states and error handling
-- Support pagination and detail viewing
-
-### Styling
-- Use Tailwind CSS
-- Responsive layout
-- Modern UI design
-
-## 🚀 Deployment
-
-### Build Production Version
-```bash
-npm run build
-```
-
-### Deploy to Static Server
-Deploy the `dist` directory to any static file server.
 
 ### Environment Configuration
-To connect to other API addresses, modify the `baseURL` in `src/services/api.ts`:
-```typescript
-const api = axios.create({
-  baseURL: 'http://localhost:8080', // Modify to actual API address
-  timeout: 10000,
-})
+
+To connect to different API addresses, modify the environment variables:
+
+#### Development Environment (.env.development)
+```
+VITE_API_BASE_URL=http://localhost:8080
+VITE_DEFAULT_LANGUAGE=zh-CN
+```
+
+#### Production Environment (.env.production)
+```
+VITE_API_BASE_URL=https://api.example.com
+VITE_DEFAULT_LANGUAGE=zh-CN
 ```
 
 ## 🐛 Common Issues
