@@ -61,6 +61,24 @@ export interface TranslationKeys {
   error: string
   fetchError: string
   retry: string
+  
+  // Trading Modes
+  tradingModes: string
+  tradingModeList: string
+  tradingModeDescription: string
+  selectTradingMode: string
+  selectTradingModePrompt: string
+  tradingModeNotAvailable: string
+  tradingModeInDevelopment: string
+  noTradingModes: string
+  lowFrequencyActiveQuant: {
+    name: string
+    description: string
+  }
+  highFrequencyArbitrage: {
+    name: string
+    description: string
+  }
 }
 
 export const zhCN: TranslationKeys = {
@@ -125,7 +143,25 @@ export const zhCN: TranslationKeys = {
   // Error
   error: '错误',
   fetchError: '获取数据失败',
-  retry: '重试'
+  retry: '重试',
+  
+  // Trading Modes
+  tradingModes: '交易模式',
+  tradingModeList: '交易模式列表',
+  tradingModeDescription: '选择不同的交易模式进行数据分析和管理',
+  selectTradingMode: '请选择交易模式',
+  selectTradingModePrompt: '请从左侧选择一个交易模式开始使用',
+  tradingModeNotAvailable: '该交易模式暂未开放，敬请期待',
+  tradingModeInDevelopment: '该交易模式正在开发中',
+  noTradingModes: '暂无可用交易模式',
+  lowFrequencyActiveQuant: {
+    name: '低频主动量化交易',
+    description: '基于低频分析的主动量化交易策略'
+  },
+  highFrequencyArbitrage: {
+    name: '高频套利交易',
+    description: '基于高频数据的套利交易策略'
+  }
 }
 
 export const enUS: TranslationKeys = {
@@ -190,5 +226,23 @@ export const enUS: TranslationKeys = {
   // Error
   error: 'Error',
   fetchError: 'Failed to fetch data',
-  retry: 'Retry'
+  retry: 'Retry',
+  
+  // Trading Modes
+  tradingModes: 'Trading Modes',
+  tradingModeList: 'Trading Mode List',
+  tradingModeDescription: 'Select different trading modes for data analysis and management',
+  selectTradingMode: 'Please select a trading mode',
+  selectTradingModePrompt: 'Please select a trading mode from the left to get started',
+  tradingModeNotAvailable: 'This trading mode is not yet available, stay tuned',
+  tradingModeInDevelopment: 'This trading mode is under development',
+  noTradingModes: 'No trading modes available',
+  lowFrequencyActiveQuant: {
+    name: 'Low Frequency Active Quantitative Trading',
+    description: 'Active quantitative trading strategy based on low frequency analysis'
+  },
+  highFrequencyArbitrage: {
+    name: 'High Frequency Arbitrage Trading',
+    description: 'Arbitrage trading strategy based on high frequency data'
+  }
 }

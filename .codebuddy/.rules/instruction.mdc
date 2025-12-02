@@ -1,0 +1,19 @@
+---
+description:
+alwaysApply: true
+enabled: true
+updatedAt: 2025-11-23T23:53:06.626Z
+provider: 
+---
+
+# Stock Assistant Frontend - Code Assistant
+
+## General
+- Do not generate log for each operation
+- In host machine, there is git configured already, do not use full exe path every time
+- For other case, if you need to use full exe path, use "" to warp it to avoid error
+
+## Coding Standards
+
+- No chinese except for i18n translation content
+- No Chinese in commit message
